@@ -1,0 +1,24 @@
+{
+  "name": "graphql-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello-graphql.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosazaustre/grpahql-playground.git"
+  },
+  "keywords": [],
+  "author": "Carlos Azaustre <cazaustre@gmail.com> (https://carlosazaustre.es)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlosazaustre/grpahql-playground/issues"
+  },
+  "homepage": "https://github.com/carlosazaustre/grpahql-playground#readme",
+  "dependencies": {
+    "graphql": "^14.0.2",
+    "graphql-tools": "^4.0.3"
+  }
+}
