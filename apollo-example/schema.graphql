@@ -1,0 +1,9 @@
+type Query {
+  users(age: Int): [User]
+}
+
+type User {
+  name: String
+  email: String
+  age: Int
+}
