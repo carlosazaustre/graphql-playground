@@ -21,8 +21,12 @@ const typeDefs = `
 const resolvers = {
   Query: {
     helloWorld: () => ({
-      message: 'Hello world from types on GraphQL'
+      message: 'Hello world from types on GraphQL',
+      author: ''
     })
+  },
+  User: {
+    name: () => 'Guest'
   }
 }
 
@@ -32,7 +36,10 @@ const query = `
   query Hello {
     helloWorld {
       message
+      author {
+        name
+      }
     }
   }
 `
-graphql(schema, query).then(result => console.log(result))
+graphql(schema, query).then(result => console.log(JSON.stringify(result, null, 2)))
