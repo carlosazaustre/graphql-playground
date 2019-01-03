@@ -1,5 +1,5 @@
 type Query {
-  users(age: Int): [User]
+  users(age: Int = 18): [User]
 }
 
 type User {

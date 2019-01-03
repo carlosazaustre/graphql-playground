@@ -22,17 +22,21 @@ const users = [
     name: 'User #2',
     email: 'another@email.com',
     age: 34
+  },
+  {
+    name: 'Kiddo',
+    email: 'little@email.com',
+    age: 16
   }
 ]
 
 const resolvers = {
   Query: {
-    users (root, args, ctx, info) {
+    async users (root, args, ctx, info) {
       const { age } = args
-      if (age) {
-        return users.filter(u => u.age > age)
-      }
-      return users
+      return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(users), 2000)
+      })
     }
   }
 }
@@ -40,7 +44,8 @@ const resolvers = {
 const api = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: true
+  playground: true,
+  tracing: true
 })
 
 api.applyMiddleware({
