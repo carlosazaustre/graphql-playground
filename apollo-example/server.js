@@ -16,27 +16,40 @@ const users = [
   {
     name: 'User #1',
     email: 'user@email.com',
-    age: 25
+    age: 25,
+    status: 'ACTIVE'
   },
   {
     name: 'User #2',
     email: 'another@email.com',
-    age: 34
+    age: 34,
+    status: 'SUSPENDED'
   },
   {
     name: 'Kiddo',
     email: 'little@email.com',
-    age: 16
+    age: 16,
+    status: 'SUSPENDED'
   }
 ]
 
 const resolvers = {
   Query: {
     async users (root, args, ctx, info) {
-      const { age } = args
+      const { status } = args
       return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(users), 2000)
+        setTimeout(() => {
+          const result = users.filter(u => u.status === status)
+          resolve(result)
+        }, 2000)
       })
+    }
+  },
+  Mutation: {
+    createUser (root, args, ctx, info) {
+      const { user } = args
+      users.push(user)
+      return user
     }
   }
 }
